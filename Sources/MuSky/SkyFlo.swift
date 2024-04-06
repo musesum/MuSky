@@ -1,7 +1,6 @@
 import UIKit
 import MuFlo
 
-
 public class SkyFlo: NSObject {
 
     public static let shared = SkyFlo()
