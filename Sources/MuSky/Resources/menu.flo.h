@@ -1,43 +1,45 @@
 model_  {
     canvas (svg "icon.canvas") {
-        mirror (svg "icon.mirror")
-        repeat (svg "icon.repeat.arrows")
+
         shift  (svg "icon.direction")
-        
-        color (img "icon.pal.main") {
-            fade   (svg "icon.gradient")
-            fill_0 (sym "drop")
-            fill_1 (sym "drop.fill")
-        }
+        fade   (svg "icon.gradient")
+
         brush (svg "icon.brush") {
             size  (svg "icon.size.dot")
             press (sym "scribble.variable")
             tilt  (sym "angle")
             index (sym "calendar.day.timeline.left")
+            canvas (sym "drop")
+        }
+        more (svg "icon.more") {
+            repeat (svg "icon.repeat.arrows")
+            mirror (svg "icon.mirror")
         }
     }
     plato (svg "icon.plato.icosa") {
-        convex   (svg "icon.convex")
-        zoom     (svg "icon.zoom")
-        invert   (svg "icon.invert")
+
+        zoom     (sym "square.arrowtriangle.4.outward")
         shadow   (sym "shadow")
-        reflect  (svg "icon.opacity")
+        material (svg "icon.opacity")
+        phase    (svg "icon.plato.phase")
+        harmonic (svg "icon.subtriangle")
         more (svg "icon.more") {
+            convex   (svg "icon.convex")
             wire     (svg "icon.wireframe")
-            phase    (svg "icon.plato.phase")
-            harmonic (svg "icon.subtriangle")
             show     (sym "eye")
             run      (svg "icon.counter")
         }
     }
     cell (svg "icon.cellular.automata") {
-        fade  (img "icon.cell.fade" )
-        ave   (img "icon.cell.ave"  )
-        melt  (img "icon.cell.melt" )
-        tunl  (img "icon.cell.tunl" )
-        zha   (img "icon.cell.zha"  )
         slide (img "icon.cell.slide")
-        fred  (img "icon.cell.fred" )
+        zha   (img "icon.cell.zha"  )
+        ave   (img "icon.cell.ave"  )
+        fade  (img "icon.cell.fade" )
+        more (svg "icon.more") {
+            melt  (img "icon.cell.melt" )
+            tunl  (img "icon.cell.tunl" )
+            fred  (img "icon.cell.fred" )
+        }
     }
     camera (sym "camera") {
         stream (sym "video")
@@ -46,7 +48,7 @@ model_  {
         mix    (sym "camera.filters")
         fade   (svg "icon.gradient")
     }
-    hand (svg "hands.both") {
+    _hand (svg "hands.both") {
         left (svg "hand.left") {
             thumb   {      knuc base inter tip }
             index   { meta knuc base inter tip }
@@ -73,12 +75,10 @@ model_  {
             follow  (sym "app.connected.to.app.below.fill")
             midi    (sym "pianokeys.inverse")
         }
-        motion (sym "gyroscope")
-        rotate (svg "icon.rotate")
-        show (sym "eye") {
-            cubemap (sym "cube")
-            canvas  (svg "icon.canvas")
-            plato   (svg "icon.dodec")
-        }
+        _motion (sym "gyroscope")
+        _rotate (svg "icon.rotate")
+        _canvas  (svg "icon.canvas")
+        cubemap (sym "cube")
+        plato   (svg "icon.dodec")
     }
 }

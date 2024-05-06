@@ -14,7 +14,7 @@ sky { // visual music synth
         xfade (x 0…1~0.5)
     }
     input { // phone and tablet pencil input
-        azimuth  (x -0.2…0.2, y -0.2…0.2) >> shader.compute.draw
+        azimuth  (x -0.2…0.2, y -0.2…0.2) >> shader.kernel.draw
         accel    (x -0.3…0.3, y -0.3…0.3, z -0.3…0.3)  // accelerometer
         accel.on (0…1~1)
         radius   (1…92~9) // finger silhouette
@@ -37,6 +37,7 @@ sky { // visual music synth
             off (x 0_11, y 0_11, z 0_127)
         }
     }
+    pov (x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time)
     canvas (x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint)
     << model.hand˚middle.tip
 
