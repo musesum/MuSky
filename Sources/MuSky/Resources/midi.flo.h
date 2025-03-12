@@ -8,15 +8,16 @@ midi { // musical instrument device interface
         pitchBend (val 0_16384~8192, chan 1_32, port 1_16, time)
         program (num 0_255, chan 1_32, port 1_16, time)
         nrpn (num 0_16383, val 0…1, chan, time, -> skypad˚.)
-        controller (cc 0_127, val 0_127, chan 1_32, port 1_16, time, -> cc˚.)
+        controller (cc 0_127, val 0_127, chan 1_32, port 1_16, time, -> cc.dispatch)
     }
-    output : input { controller(<- cc˚.) }
+    output : input { controller(<- (cc.dispatch, note˚.)) }
 
     skypad {
         plane(num == 129, val 0…1, chan, time, <> model.canvas.color.fade(x = val))
         fade (num == 130, val 0…1, chan, time, <> model.canvas.color.fade(y = val))
     }
     cc {
+        dispatch (<> (skypad˚., roli.lightpad˚.))
         skypad {
             zoom    (cc ==  4, val 0_127, <> model.plato.zoom)
             convex  (cc ==  5, val 0_127, <> model.plato.shade.convex)
@@ -50,16 +51,6 @@ midi { // musical instrument device interface
                 next   (cc == 111, val 0_127)
             }
         }
-    }
-
-    notes {
-        dot.on (x num % 12, y num / 12, z velo, -> sky.draw.dot.on)
-        dot.off(x num % 12, y num / 12, z velo, -> sky.draw.dot.off)
-        input.note.on (-> (notes.dot.on,  output.note.on))
-        input.note.off( -> (notes.dot.off, output.note.off))
-    }
-
-    _cc {
         main {
             modWheel    (num ==  1, val, chan, time)
             volume      (num ==  7, val, chan, time)
@@ -159,5 +150,10 @@ midi { // musical instrument device interface
             omniMode(0_1, <- (omniModeOff(0), omniModeOn(1)))
         }
     }
+    draw {
+        dot.on (x num % 12, y num / 12, z velo, -> sky.draw.dot.on)
+        dot.off(x num % 12, y num / 12, z velo, -> sky.draw.dot.off)
+        input.note.on (-> draw.dot.on)
+        input.note.off(-> draw.dot.off)
+    }
 }
-

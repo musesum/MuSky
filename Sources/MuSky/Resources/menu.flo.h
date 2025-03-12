@@ -2,10 +2,10 @@ model {
     canvas (columns 2) {
 
         color (xy, x 0…1, y 0…1,
-               -> (pipe.color.plane, sky.color.xfade),
+               <> (pipe.color.plane, sky.color.xfade),
                ^- sky.main.anim)
 
-        brush (val,  x 1_255~255,
+        brush (val, x 1_255~255,
                <> sky.draw.brush.index)
 
         repeat (xy, x -1…1~0, y -1…1~0,
@@ -18,8 +18,8 @@ model {
                 <> pipe˚.mirror,
                 ^- sky.main.anim)
 
-        size  (val, x 1_64~12, <> (sky.draw.brush.size, press(0)))
-        press (tap, x 1, <> sky.draw.brush.press)
+        size  (val, x 1_64~12, <> sky.draw.brush.size, -> press(x 0)) 
+        press (tog, x 1, <> sky.draw.brush.press)
         tilt  (tog, x 0, <> sky.input.tilt)
 
         shift (xy, x 0…1~0.5, y 0…1~0.5,
@@ -30,14 +30,14 @@ model {
     }
 
     plato (columns 2) {
-        show     (tog, x 1, <> pipe.render.plato(on x))
-        cubemap  (tog, x 1, <> pipe.render.map˚mix)
+        show     (tog, x 1, <> pipe.render.plato(on : x))
+        cubemap  (tog, x 1, <> pipe.render.map.cube.mixcube)
         material (xyz, x 0…1~0, y 0…1~0,z 0…1~0.75, ^- sky.main.anim)
 
         harmonic (val, x 0_6 : 1)
         phase    (val, x 0_10 : 1)
         convex   (val, x 0.9…1.1 : 0.98)
-        zoom     (val, x 0…1~0, ^- sky.main.anim)
+        zoom     (val, y 0…1~0, ^- sky.main.anim)
         _run     (tog, x 1)
         _wire    (tog, x 0)
         _counter
@@ -52,11 +52,12 @@ model {
         fred  (seg, x 0_4~4,   <> pipe.cell˚fred.version)
     }
     camera {
-        stream  (tog, x 0…1~0, -> (pipe.camera(on x), cubemap(x 0)))
-        front   (tog, x 0…1~1, <> pipe.camera.front)
-        cubemap (tog, x 0…1~1, <> pipe.render.map˚mix)
-        mix     (xy,  x 0…1~1, y 0…1~0, -> (pipe.camix.mix,
-                                            pipe.cell.rule˚loops(y)))
+        stream  (tog, x 0, <> pipe.camera(on: x), -> cubemap(x: 0))
+        front   (tog, x 1, <> pipe.camera.front)
+        cubemap (tog, x 1, <> pipe.render.map.cube.mixcube)
+        mix     (xy,  x 1, y 0…1~0, <> (pipe.camix.mixcam,
+                                        pipe.cell.rule˚loops(y)))
+
         color (xy, x 0…1~0, y 0…1~0, <> canvas.color)
     }
     bonjour (peer "bonjour", <> sky.network.bonjour)
