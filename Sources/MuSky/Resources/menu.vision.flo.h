@@ -31,7 +31,7 @@ model {
 
     plato (columns 2) {
         show     (tog, x 1, <> pipe.render.plato(on : x))
-        cubemap  (tog, x 1, <> pipe.render.map.cube.mixcube)
+        _cubemap  (tog, x 1, <> pipe.render.map.cube.mixcube)
         material (xyz, x 0…1~0, y 0…1~0,z 0…1~0.75, ^- sky.main.anim)
 
         harmonic (val, x 0_6 : 1)

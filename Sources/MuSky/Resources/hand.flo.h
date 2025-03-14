@@ -1,3 +1,6 @@
+hand {
+    touching (<- model.hand˚middle.tip)
+}
 model {
     hand {
         left {

@@ -37,5 +37,5 @@ sky { // visual music synth
         }
     }
     pov (x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time)
-    touching (<- model.hand˚middle.tip)
+
 }
