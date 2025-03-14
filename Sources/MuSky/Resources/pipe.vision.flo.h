@@ -5,7 +5,7 @@ pipe (on 1) {
         out (tex, archive)  // archive: save snapshot of drawing surface
         shift (buf, x 0…1~0.5,  y 0…1~0.5)
     }
-    _camera (on 0) {
+    camera (on 0) {
         out (tex)
         front (buf, x 0)
     }

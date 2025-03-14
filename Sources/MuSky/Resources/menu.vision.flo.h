@@ -18,7 +18,7 @@ model {
                 <> pipe˚.mirror,
                 ^- sky.main.anim)
 
-        size  (val, x 1_64~12, <> sky.draw.brush.size, -> press(x 0))
+        size  (val, x 1_64~12 : 12, <> sky.draw.brush.size)
         press (tog, x 1, <> sky.draw.brush.press)
         tilt  (tog, x 0, <> sky.input.tilt)
 
@@ -106,7 +106,7 @@ menu {
         tunl  (img "icon.cell.tunl" )
         fred  (img "icon.cell.fred" )
     }
-    camera (sym "camera") {
+    _camera (sym "camera") {
         stream (sym "video")
         front  (svg "icon.camera.facing")
         cubemap(sym "cube")
@@ -116,7 +116,7 @@ menu {
     }
     bonjour (sym "bonjour")
     archive (sym "building.columns")
-    more (svg "icon.more") {
+    _more (svg "icon.more") {
         fps  (img "icon.speed")
         anim (sym "bolt.fill")
         _snapshot(sym "camera.shutter.button")

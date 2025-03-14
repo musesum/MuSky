@@ -18,7 +18,7 @@ model {
                 <> pipe˚.mirror,
                 ^- sky.main.anim)
 
-        size  (val, x 1_64~12, <> sky.draw.brush.size, -> press(x 0)) 
+        size  (val, x 1_64~12 : 12, <> sky.draw.brush.size)
         press (tog, x 1, <> sky.draw.brush.press)
         tilt  (tog, x 0, <> sky.input.tilt)
 

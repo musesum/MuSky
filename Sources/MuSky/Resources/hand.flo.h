@@ -12,7 +12,7 @@ model {
                 knuc (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
                 base (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
                 inter(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
-                tip  (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
+                tip  (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 1, state)
             }
             middle {
                 meta (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
@@ -50,7 +50,7 @@ model {
                 knuc (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
                 base (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
                 inter(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
-                tip  (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
+                tip  (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 1, state)
             }
             middle {
                 meta (xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, phase, joint, on 0, state)
