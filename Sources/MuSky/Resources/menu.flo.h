@@ -34,8 +34,8 @@ model {
         cubemap  (tog, x 1, <> pipe.render.map.cube.mixcube)
         material (xyz, x 0…1~0, y 0…1~0,z 0…1~0.75, ^- sky.main.anim)
 
-        harmonic (val, x 0_6 : 1)
-        phase    (val, x 0_10 : 1)
+        harmonic (seg, x 0_6)
+        phase    (seg, x 0_10 : 1)
         convex   (val, x 0.9…1.1 : 0.98)
         zoom     (val, y 0…1~0, ^- sky.main.anim)
         _run     (tog, x 1)
