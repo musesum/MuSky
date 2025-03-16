@@ -3,56 +3,56 @@ model {
 
         color (xy, x 0…1, y 0…1,
                <> (pipe.color.plane, sky.color.xfade),
-               ^- sky.main.anim)
+               ^- sky.main.anim) // color palette
 
         brush (val, x 1_255~255,
-               <> sky.draw.brush.index)
+               <> sky.draw.brush.index) // brush size
 
         repeat (xy, x -1…1~0, y -1…1~0,
                 <> pipe˚.repeat,
                 -> (midi.cc.skypad.repeatX(val x),
                     midi.cc.skypad.repeatY(val y)),
-                ^- sky.main.anim)
+                ^- sky.main.anim) // canvas repetitions
 
         mirror (xy, x 0…1~0, y 0…1~0,
                 <> pipe˚.mirror,
-                ^- sky.main.anim)
+                ^- sky.main.anim) // mirror repeat
 
         size  (val, x 1_64~12 : 12, <> sky.draw.brush.size)
-        press (tog, x 1, <> sky.draw.brush.press)
-        tilt  (tog, x 0, <> sky.input.tilt)
+        press (tog, x 1, <> sky.draw.brush.press) // pressure sensive apple pencil
+        tilt  (tog, x 0, <> sky.input.tilt) // tilting shift with apple pencil
 
         shift (xy, x 0…1~0.5, y 0…1~0.5,
                <> pipe.draw.shift,
-               ^- sky.main.anim)
+               ^- sky.main.anim) // shifting canva
 
         fill  (val, 0…1, <> sky.draw.screen.fill)
     }
 
     plato (columns 2) {
-        show     (tog, x 1, <> pipe.render.plato(on : x))
-        cubemap  (tog, x 1, <> pipe.render.map.cube.mixcube)
-        material (xyz, x 0…1~0, y 0…1~0,z 0…1~0.75, ^- sky.main.anim)
+        show     (tog, x 1, <> pipe.render.plato(on : x)) // show five platonic solids
+        cubemap  (tog, x 1, <> pipe.render.map.cube.mixcube) // cube or flat image
+        material (xyz, x 0…1~0, y 0…1~0,z 0…1~0.75, ^- sky.main.anim) // reflect or colorize
 
-        harmonic (seg, x 0_6)
-        phase    (seg, x 0_10 : 1)
-        convex   (val, x 0.9…1.1 : 0.98)
-        zoom     (val, y 0…1~0, ^- sky.main.anim)
+        harmonic (seg, x 0_6) // subdivisions of platonic
+        phase    (seg, x 0_10 : 1) // between tetra cube octa dodec icossa
+        convex   (val, x 0.9…1.1 : 0.98) // inner outer
+        zoom     (val, y 0…1~0, ^- sky.main.anim) // zoom in out
         _run     (tog, x 1)
         _wire    (tog, x 0)
         _counter
     }
     cell (columns 2) {
-        slide (seg, x 0_7~3,   <> pipe.cell˚slide.version)
-        zha   (seg, x 0_6~2,   <> pipe.cell˚zha.version)
-        ave   (val, x 0…1~0.5, <> pipe.cell˚ave.version)
-        fade  (val, x 0.2…2~1, <> pipe.cell˚fade.version)
-        melt  (val, x 0…1~0.5, <> pipe.cell˚melt.version)
-        tunl  (seg, x 0_5~1,   <> pipe.cell˚tunl.version)
-        fred  (seg, x 0_4~4,   <> pipe.cell˚fred.version)
+        slide (seg, x 0_7~3,   <> pipe.cell˚slide.version) // sliders
+        zha   (seg, x 0_6~2,   <> pipe.cell˚zha.version) // spiral
+        ave   (val, x 0…1~0.5, <> pipe.cell˚ave.version) // averaging
+        fade  (val, x 0.2…2~1, <> pipe.cell˚fade.version) // fade out
+        melt  (val, x 0…1~0.5, <> pipe.cell˚melt.version) // psychedelic
+        tunl  (seg, x 0_5~1,   <> pipe.cell˚tunl.version) // flashy intense
+        fred  (seg, x 0_4~4,   <> pipe.cell˚fred.version) // fredkin rule
     }
     camera {
-        stream  (tog, x 0, <> pipe.camera(on: x), -> cubemap(x: 0))
+        stream  (tog, x 0, <> pipe.camera(on: x), -> cubemap(x: 0)) // live camera
         front   (tog, x 1, <> pipe.camera.front)
         cubemap (tog, x 1, <> pipe.render.map.cube.mixcube)
         mix     (xy,  x 1, y 0…1~0, <> (pipe.camix.mixcam,

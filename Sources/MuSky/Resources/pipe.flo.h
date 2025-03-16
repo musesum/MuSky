@@ -5,16 +5,16 @@ pipe (on 1) {
         out (tex, archive)  // archive: save snapshot of drawing surface
         shift (buf, x 0…1~0.5,  y 0…1~0.5)
     }
-    camera (on 0) {
+    camera (on 0) { // turn cameral on
         out (tex)
-        front (buf, x 0)
+        front (buf, x 0) // use or back camera
     }
     cell (on 1) {
         fake (tex, <- draw.out)
         real (tex, <- (draw.out, camera.out))
         out (tex)
         rule (on 1) {
-            slide(on 1) { version (buf, x 0…7 : 3)   loops (buf, z 0) }
+            slide(on 1) { version (buf, x 0…7 : 3)   loops (buf, z 0) } 
             zha  (on 0) { version (buf, x 0…6 : 2)   loops (buf, z 10) }
             ave  (on 0) { version (buf, x 0…1 : 0.5) loops (buf, y 0…99~0) }
             fade (on 0) { version (buf, x 1…3 : 1.2) loops (buf, y 0…32~0) }
