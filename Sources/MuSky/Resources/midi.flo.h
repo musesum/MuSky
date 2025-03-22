@@ -13,29 +13,29 @@ midi { // musical instrument device interface
     output : input { controller(<- (cc.dispatch, note˚.)) }
 
     skypad {
-        plane(num == 129, val 0…1, chan, time, <> model.canvas.color.fade(x = val))
-        fade (num == 130, val 0…1, chan, time, <> model.canvas.color.fade(y = val))
+        plane(num == 129, val 0…1, chan, time, <> canvas.color.fade(x = val))
+        fade (num == 130, val 0…1, chan, time, <> canvas.color.fade(y = val))
     }
     cc {
         dispatch (-> (skypad˚., roli.lightpad˚.))
         skypad {
 
-            fade    (cc == 0, val 0_127, <> model.canvas.color(x: val))
-            plane   (cc == 1, val 0_127, <> model.canvas.color(y: val))
-            zoom    (cc == 2, val 0_127, <> model.plato.zoom(y: val))
-            convex  (cc == 3, val 0_127, <> model.plato.convex(x: val))
+            fade    (cc == 0, val 0_127, <> canvas.color(x: val))
+            plane   (cc == 1, val 0_127, <> canvas.color(y: val))
+            zoom    (cc == 2, val 0_127, <> plato.zoom(y: val))
+            convex  (cc == 3, val 0_127, <> plato.convex(x: val))
 
-            materialX (cc == 4, val 0_127, <> model.plato.material(x: val))
-            materialX (cc == 5, val 0_127, <> model.plato.material(y: val))
-            materialZ (cc == 6, val 0_127, <> model.plato.material(z: val))
-            harmonic (cc == 7, val 0_127, <> model.plato.harmonic(x: val))
+            materialX (cc == 4, val 0_127, <> plato.material(x: val))
+            materialX (cc == 5, val 0_127, <> plato.material(y: val))
+            materialZ (cc == 6, val 0_127, <> plato.material(z: val))
+            harmonic (cc == 7, val 0_127, <> plato.harmonic(x: val))
 
-            shiftX  (cc == 8, val 0_127, <> model.canvas.shift(x: val))
-            shiftY  (cc == 9, val 0_127, <> model.canvas.shift(y: val))
-            repeatX (cc == 10, val 0_127, <> model.canvas.repeat(x: val))
-            repeatY (cc == 11, val 0_127, <> model.canvas.repeat(y: val))
+            shiftX  (cc == 8, val 0_127, <> canvas.shift(x: val))
+            shiftY  (cc == 9, val 0_127, <> canvas.shift(y: val))
+            repeatX (cc == 10, val 0_127, <> canvas.repeat(x: val))
+            repeatY (cc == 11, val 0_127, <> canvas.repeat(y: val))
 
-            camix   (cc ==  12, val 0_127, <> model.camera.mix(val))
+            camix   (cc ==  12, val 0_127, <> camera.mix(val))
 
             // skypad˚.(-> output.note.on(num val))
         }

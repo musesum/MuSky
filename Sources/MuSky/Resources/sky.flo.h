@@ -21,11 +21,11 @@ sky { // visual music synth
         force   (x 0…0.5, -> draw.brush.size)
     }
     draw { // draw on metal layer
-        screen.fill(0…1~0) // fill cellular automata universe
+        screen.fill(x 0…1~0) // fill cellular automata universe
         brush { // type of brush and range
-            size  (x 1…64~10:10)    // range of radius
-            press (x 0…1~1)     // pressure changes size
-            index (x 1…255~127) // index in 256 color palette
+            size  (x 1…64~10:10) // range of radius
+            press (x 0…1~1)      // pressure changes size
+            index (x 1…255~127)  // index in 256 color palette
         }
         line { // place holder for line drawing
             prev (x 0…1, y 0…1) // staring point of segment
