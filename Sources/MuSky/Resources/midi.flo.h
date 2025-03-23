@@ -8,30 +8,30 @@ midi { // musical instrument device interface
         pitchBend (val 0_16384~8192, chan 1_32, port 1_16, time)
         program (num 0_255, chan 1_32, port 1_16, time)
         nrpn (num 0_16383, val 0…1, chan, time, -> skypad˚.)
-        controller (cc 0_127, val 0_127, chan 1_32, port 1_16, time, -> cc.skypad˚.)
+        controller (cc 0_127, val 0_127, chan 1_32, port 1_16, time, -> cc.roli˚.)
     }
-    output : input { controller(<- (cc.dispatch, note˚.)) }
+    output : input { controller(<- cc˚.) }
 
     skypad {
         plane(num == 129, val 0…1, chan, time, <> canvas.color.fade(x = val))
         fade (num == 130, val 0…1, chan, time, <> canvas.color.fade(y = val))
     }
     cc {
-        dispatch (-> (skypad˚., roli.lightpad˚.))
-        skypad {
+        dispatch (-> (roli˚., roli.lightpad˚.))
+        _skypad {
 
-            fade    (cc == 0, val 0_127, <> canvas.color(x: val))
-            plane   (cc == 1, val 0_127, <> canvas.color(y: val))
-            zoom    (cc == 2, val 0_127, <> plato.zoom(y: val))
-            convex  (cc == 3, val 0_127, <> plato.convex(x: val))
+            fade   (cc == 0, val 0_127, <> canvas.color(x: val))
+            plane  (cc == 1, val 0_127, <> canvas.color(y: val))
+            zoom   (cc == 2, val 0_127, <> plato.zoom(y: val))
+            convex (cc == 3, val 0_127, <> plato.convex(x: val))
 
             materialX (cc == 4, val 0_127, <> plato.material(x: val))
             materialX (cc == 5, val 0_127, <> plato.material(y: val))
             materialZ (cc == 6, val 0_127, <> plato.material(z: val))
-            harmonic (cc == 7, val 0_127, <> plato.harmonic(x: val))
+            harmonic  (cc == 7, val 0_127, <> plato.harmonic(x: val))
 
-            shiftX  (cc == 8, val 0_127, <> canvas.shift(x: val))
-            shiftY  (cc == 9, val 0_127, <> canvas.shift(y: val))
+            shiftX  (cc == 8, val 0_127 , <> canvas.shift(x: val))
+            shiftY  (cc == 9, val 0_127 , <> canvas.shift(y: val))
             repeatX (cc == 10, val 0_127, <> canvas.repeat(x: val))
             repeatY (cc == 11, val 0_127, <> canvas.repeat(y: val))
 
@@ -41,10 +41,29 @@ midi { // musical instrument device interface
         }
         roli {
             lightpad {
-                x (cc == 114, val 0_127) //, <> sky.draw.dot.on(x val))
-                y (cc == 113, val 0_127) //, <> sky.draw.dot.on(y val))
-                z (cc == 115, val 0_127) //, <> (sky.draw.dot.on(z val))
-                                         //    sky.color.xfade(x val))
+                xyz {
+                    x (cc == 114, val 0_127)
+                    y (cc == 113, val 0_127)
+                    z (cc == 115, val 0_127)
+                }
+                fader {
+                    fader01(cc == 102, val 0_127, <> canvas.color(x: val))
+                    fader02(cc == 103, val 0_127, <> canvas.color(y: val))
+                    fader03(cc == 104, val 0_127, <> plato.zoom(y: val))
+                    fader04(cc == 105, val 0_127, <> plato.convex(x: val))
+                    fader05(cc == 106, val 0_127, <> plato.material(x: val))
+                    fader06(cc == 107, val 0_127, <> plato.material(y: val))
+                    fader07(cc == 108, val 0_127, <> plato.material(z: val))
+                    fader08(cc == 109, val 0_127, <> plato.harmonic(x: val))
+                    fader09(cc == 110, val 0_127)
+                    fader10(cc == 111, val 0_127)
+                    fader11(cc == 112, val 0_127, <> canvas.repeat(x: val))
+                    fader12(cc == 113, val 0_127, <> canvas.repeat(y: val))
+                    fader13(cc == 114, val 0_127)
+                    fader14(cc == 115, val 0_127)
+                    fader15(cc == 116, val 0_127)
+                    fader15(cc == 117, val 0_127)
+                }
             }
             loopblock {
                 mode   (cc == 102, val 0_127)
