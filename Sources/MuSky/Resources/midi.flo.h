@@ -15,29 +15,29 @@ midi('musical instrument device interface') {
     cc {
         roli {
             lightpad {
-                mixer {
-                    fader1(cc ==  98, val 0…1, <> canvas.color(x: val))
-                    fader2(cc ==  99, val 0…1, <> canvas.color(y: val))
-                    fader3(cc == 100, val 0…1, <> plato.harmonic(x: val))
-                    fader4(cc == 101, val 0…1, <> plato.zoom(y: val))
-
+                mixer('roli default mixer block') {
                     button1(cc == 102, val 0_1, <> canvas.fill(x: 0))
                     button2(cc == 103, val 0…1, <> canvas.shift(x: val/2, y: val/2))
                     button3(cc == 104, val 0_1, <> plato.cubemap(x: val, y: val))
                     button4(cc == 105, val 0_1, <> plato.show(x: val))
+
+                    fader1(cc == 112, val 0…1, <> canvas.color(x: val))
+                    fader2(cc == 113, val 0…1, <> canvas.color(y: val))
+                    fader3(cc == 114, val 0…1, <> plato.harmonic(x: val))
+                    fader4(cc == 115, val 0…1, <> plato.zoom(y: val))
                 }
             }
-            loop {
-                mode   (cc == 106, val 0_127)
-                mute   (cc == 107, val 0_127)
-                metro  (cc == 108, val 0_127)
-                skip   (cc == 109, val 0_127)
-                back   (cc == 110, val 0_127)
-                play   (cc == 111, val 0_127)
-                record (cc == 112, val 0_127)
-                learn  (cc == 113, val 0_127)
-                prev   (cc == 114, val 0_127)
-                next   (cc == 115, val 0_127)
+            loop('Roli Loop Melodics preset, edited cc range to 92-101') {
+                mode   (cc ==  92, val 0_127)
+                mute   (cc ==  93, val 0_127)
+                metro  (cc ==  94, val 0_127)
+                skip   (cc ==  95, val 0_127)
+                back   (cc ==  96, val 0_127)
+                play   (cc ==  97, val 0_127)
+                record (cc ==  98, val 0_127)
+                learn  (cc ==  99, val 0_127)
+                prev   (cc == 100, val 0_127)
+                next   (cc == 101, val 0_127)
             }
         }
         main {
