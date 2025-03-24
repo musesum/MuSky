@@ -1,6 +1,6 @@
-midi { // musical instrument device interface
-    input { // midi input
-        note { // note on/off from 0 thru 127
+midi('musical instrument device interface') {
+    input ('MIDI input') {
+        note('note on/off from 0 thru 127') {
             on  (num 0_127, velo 0_127, chan 1_32, port 1_16, time)
             off (num 0_127, velo 0_127, chan 1_32, port 1_16, time)
         }
@@ -12,70 +12,32 @@ midi { // musical instrument device interface
     }
     output : input { controller(<- cc˚.) }
 
-    skypad {
-        plane(num == 129, val 0…1, chan, time, <> canvas.color.fade(x = val))
-        fade (num == 130, val 0…1, chan, time, <> canvas.color.fade(y = val))
-    }
     cc {
-        dispatch (-> (roli˚., roli.lightpad˚.))
-        _skypad {
-
-            fade   (cc == 0, val 0_127, <> canvas.color(x: val))
-            plane  (cc == 1, val 0_127, <> canvas.color(y: val))
-            zoom   (cc == 2, val 0_127, <> plato.zoom(y: val))
-            convex (cc == 3, val 0_127, <> plato.convex(x: val))
-
-            materialX (cc == 4, val 0_127, <> plato.material(x: val))
-            materialX (cc == 5, val 0_127, <> plato.material(y: val))
-            materialZ (cc == 6, val 0_127, <> plato.material(z: val))
-            harmonic  (cc == 7, val 0_127, <> plato.harmonic(x: val))
-
-            shiftX  (cc == 8, val 0_127 , <> canvas.shift(x: val))
-            shiftY  (cc == 9, val 0_127 , <> canvas.shift(y: val))
-            repeatX (cc == 10, val 0_127, <> canvas.repeat(x: val))
-            repeatY (cc == 11, val 0_127, <> canvas.repeat(y: val))
-
-            camix   (cc ==  12, val 0_127, <> camera.mix(val))
-
-            // skypad˚.(-> output.note.on(num val))
-        }
         roli {
             lightpad {
-                xyz {
-                    x (cc == 114, val 0_127)
-                    y (cc == 113, val 0_127)
-                    z (cc == 115, val 0_127)
-                }
-                fader {
-                    fader01(cc == 102, val 0_127, <> canvas.color(x: val))
-                    fader02(cc == 103, val 0_127, <> canvas.color(y: val))
-                    fader03(cc == 104, val 0_127, <> plato.zoom(y: val))
-                    fader04(cc == 105, val 0_127, <> plato.convex(x: val))
-                    fader05(cc == 106, val 0_127, <> plato.material(x: val))
-                    fader06(cc == 107, val 0_127, <> plato.material(y: val))
-                    fader07(cc == 108, val 0_127, <> plato.material(z: val))
-                    fader08(cc == 109, val 0_127, <> plato.harmonic(x: val))
-                    fader09(cc == 110, val 0_127)
-                    fader10(cc == 111, val 0_127)
-                    fader11(cc == 112, val 0_127, <> canvas.repeat(x: val))
-                    fader12(cc == 113, val 0_127, <> canvas.repeat(y: val))
-                    fader13(cc == 114, val 0_127)
-                    fader14(cc == 115, val 0_127)
-                    fader15(cc == 116, val 0_127)
-                    fader15(cc == 117, val 0_127)
+                mixer {
+                    fader1(cc ==  98, val 0…1, <> canvas.color(x: val))
+                    fader2(cc ==  99, val 0…1, <> canvas.color(y: val))
+                    fader3(cc == 100, val 0…1, <> plato.harmonic(x: val))
+                    fader4(cc == 101, val 0…1, <> plato.zoom(y: val))
+
+                    button1(cc == 102, val 0_1, <> canvas.fill(x: 0))
+                    button2(cc == 103, val 0…1, <> canvas.shift(x: val/2, y: val/2))
+                    button3(cc == 104, val 0_1, <> plato.cubemap(x: val, y: val))
+                    button4(cc == 105, val 0_1, <> plato.show(x: val))
                 }
             }
-            loopblock {
-                mode   (cc == 102, val 0_127)
-                mute   (cc == 103, val 0_127)
-                metro  (cc == 104, val 0_127)
-                skip   (cc == 105, val 0_127)
-                back   (cc == 106, val 0_127)
-                play   (cc == 107, val 0_127)
-                record (cc == 108, val 0_127)
-                learn  (cc == 109, val 0_127)
-                prev   (cc == 110, val 0_127)
-                next   (cc == 111, val 0_127)
+            loop {
+                mode   (cc == 106, val 0_127)
+                mute   (cc == 107, val 0_127)
+                metro  (cc == 108, val 0_127)
+                skip   (cc == 109, val 0_127)
+                back   (cc == 110, val 0_127)
+                play   (cc == 111, val 0_127)
+                record (cc == 112, val 0_127)
+                learn  (cc == 113, val 0_127)
+                prev   (cc == 114, val 0_127)
+                next   (cc == 115, val 0_127)
             }
         }
         main {

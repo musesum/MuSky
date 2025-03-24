@@ -17,12 +17,12 @@ hand(svg "hands.both") {
         wrist
         forearm
     }
-
+    
     hand˚.(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
-           time, phase, joint, on 0, state) // decorate joints with expressions
-
+           time, phase, joint, on 0, state,'decorate joints with expressions')
+    
     hand˚tip(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
-             time, phase, joint, on 1, state) // set finger tips on
-
+             time, phase, joint, on 1, state,'set finger tips on')
+    
     touching (<- hand˚middle.tip)
 }
