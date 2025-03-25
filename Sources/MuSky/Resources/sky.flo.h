@@ -31,9 +31,15 @@ sky ('visual music synth') {
             prev (x 0…1, y 0…1,'staring point of segment')
             next (x 0…1, y 0…1,'endint point of segment')
         }
-        dot {
-            on  (x 0_11, y 0_11, z 0_127)
-            off (x 0_11, y 0_11, z 0_127)
+        dot('redirect midi input to drawing mpe dots') {
+            note {
+                on(chan, num, velo, <- midi.input.note.on)
+                off(chan, num, velo, <- midi.input.note.off)
+            }
+            after(chan, val, <- midi.input.afterTouch)
+            wheel(chan, val, <- midi.input.pitchWheel)
+            slide(chan, cc == 74, val, <- midi.input.controller)
+            clear(<- draw.screen.fill)
         }
     }
     pov (x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, 'point of view')
