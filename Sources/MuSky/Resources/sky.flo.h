@@ -5,8 +5,8 @@ sky ('visual music synth') {
     }
     network {
         bonjour('bonjour status')
-        follow (x 0…1~1,'follow remote events')
-        midi   (x 0…1~1,'follow midi events')
+        follow (x 0…1~1,'follow remote events -- not implemented')
+        midi   (x 0…1~1,'follow midi events -- not implemented')
     }
     color ('false color mapping palette') {
         pal0 ("roygbik", 'red orange yellow green blue indigo black')
@@ -16,22 +16,33 @@ sky ('visual music synth') {
     input ('phone and tablet pencil input') {
         azimuth (x -0.2…0.2, y -0.2…0.2, -> pipe.draw.shift)
         accel   (x -0.3…0.3, y -0.3…0.3, z -0.3…0.3,'accelerometer')
-        radius  (x 1…92~9,'for iPhone, finger silhouette changes brush size')
-        tilt    (x 0…1~1, 'for iPad pen, allow tilt to shift screen')
+        radius  (x 1…92~9, 'for iPhone, finger silhouette changes brush size')
+        tilt    (x 0…1~1,  'for iPad pen, allow tilt to shift screen')
         force   (x 0…0.5, -> draw.brush.size, 'iPad pen, pressure with change brush size')
     }
+
     draw ('draw on metal layer') {
-        screen.fill(x 0…1~0,'fill cellular automata universe')
+        screen.fill(x 0…1~0, 'fill cellular automata universe')
         brush ('type of brush and range') {
-            size  (x 1…64~10:10,'range of radius')
-            press (x 0…1~1,'pressure changes size')
-            index (x 1…255~127,'index in 256 color palette')
+            size  (x 1…64~10:10, 'range of radius')
+            press (x 0…1~1, 'pressure changes size')
+            index (x 1…255~127, 'index in 256 color palette')
         }
         line ('place holder for line drawing') {
             prev (x 0…1, y 0…1,'staring point of segment')
             next (x 0…1, y 0…1,'endint point of segment')
         }
-        dot('redirect midi input to drawing mpe dots') {
+        dot('use MIDI MPI input to drawing dots on canvas') {
+            note {
+                on(chan, num, velo, <- midi.input.note.on)
+                off(chan, num, velo, <- midi.input.note.off)
+            }
+            after(chan, val, <- midi.input.afterTouch)
+            wheel(chan, val, <- midi.input.pitchWheel)
+            slide(chan, cc == 74, val, <- midi.input.controller)
+            clear(<- draw.screen.fill)
+        }
+        ripple('use MIDI MPE to ripple colors through pal0/pal1 ') {
             note {
                 on(chan, num, velo, <- midi.input.note.on)
                 off(chan, num, velo, <- midi.input.note.off)
@@ -42,5 +53,6 @@ sky ('visual music synth') {
             clear(<- draw.screen.fill)
         }
     }
-    pov (x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time, 'point of view')
+    pov ('point of view',
+         x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time)
 }
