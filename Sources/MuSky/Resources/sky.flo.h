@@ -32,7 +32,7 @@ sky ('visual music synth') {
             prev (x 0…1, y 0…1,'staring point of segment')
             next (x 0…1, y 0…1,'endint point of segment')
         }
-        dot('use MIDI MPI input to drawing dots on canvas') {
+        dot(on 1, log 0, 'use MIDI MPI input to drawing dots on canvas') {
             note {
                 on(chan, num, velo, <- midi.input.note.on)
                 off(chan, num, velo, <- midi.input.note.off)
@@ -42,7 +42,7 @@ sky ('visual music synth') {
             slide(chan, cc == 74, val, <- midi.input.controller)
             clear(<- draw.screen.fill)
         }
-        ripple('use MIDI MPE to ripple colors through pal0/pal1 ') {
+        ripple(on 1, log 0, 'use MIDI MPE to ripple colors through pal0/pal1 ') {
             note {
                 on(chan, num, velo, <- midi.input.note.on)
                 off(chan, num, velo, <- midi.input.note.off)
