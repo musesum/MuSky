@@ -8,7 +8,7 @@ plato ('platonic solids',
           <> pipe.render.plato(on : x))
 
     material ('gradient xy and transparencey z',
-              xyz, x 0…1~0, y 0…1~0,z 0…1~0.75,
+              xyz, x 0…1~0, y 0…1~0, z 0…1~1,
               svg "icon.opacity",
               ^- sky.main.anim)
 
@@ -30,9 +30,9 @@ plato ('platonic solids',
           ^- sky.main.anim)
 
     cubemap ('show cubemap or flat screen (ignored on AVP',
-             tog, x 0_1 : 1,
+             tog, x 0…1 : 1,
              sym "cube",
-             <> pipe.render.map.cube.mixcube)
+             -> pipe.render.map.cube.mixcube(x: x))
 
     _run ('run the platonic transformation',
           tog, x 0_1 : 1,

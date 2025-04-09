@@ -9,7 +9,7 @@ plato (columns 2,
              sym "cube",
              <> pipe.render.map.cube.mixcube)
 
-    material (xyz, x 0…1~0, y 0…1~0,z 0…1~0.75,
+    material (xyz, x 0…1~0, y 0…1~0,z 0…1~1,
               svg "icon.opacity",
               ^- sky.main.anim)
 

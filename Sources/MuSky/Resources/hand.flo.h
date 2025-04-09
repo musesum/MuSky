@@ -21,8 +21,11 @@ hand(svg "hands.both") {
     hand˚.(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
            time, phase, joint, on 0, state,'decorate joints with expressions')
     
-    hand˚tip(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+    hand˚tip(x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
              time, phase, joint, on 1, state,'set finger tips on')
-    
-    touching (<- hand˚middle.tip)
+
+    menu   (<- index.tip, 'dismiss / bring back menu')
+    draw   (<- hand˚middle.tip, 'draw on canvas. see JointCanvasState:: parseCanvas')
+    zoom   (<- hand˚ring.tip, -> plato.zoom(y: z))
+    matter (<- hand˚little.tip, -> plato.material)
 }

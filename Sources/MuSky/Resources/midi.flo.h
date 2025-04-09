@@ -16,10 +16,10 @@ midi('musical instrument device interface') {
         roli {
             lightpad {
                 mixer('roli default mixer block') {
-                    button1(cc == 102, val 0_1, <> canvas.fill(x: 0))
-                    button2(cc == 103, val 0…1, <> canvas.shift(x: val/2, y: val/2))
-                    button3(cc == 104, val 0_1, <> plato.cubemap(x: val, y: val))
-                    button4(cc == 105, val 0_1, <> plato.show(x: val))
+                    button1(cc == 102, val 0_1, -> canvas.fill(x: 0))
+                    button2(cc == 103, val 0…1, -> canvas.shift(x: val/2, y: val/2))
+                    button3(cc == 104, val 0_1, -> plato.cubemap(x: val))
+                    button4(cc == 105, val 0_1, -> plato.show(x: val))
 
                     fader1(cc == 112, val 0…1, <> canvas.color(x: val))
                     fader2(cc == 113, val 0…1, <> canvas.color(y: val))

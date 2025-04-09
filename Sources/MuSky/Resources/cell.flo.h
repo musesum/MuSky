@@ -3,7 +3,7 @@ cell (columns 2, svg "icon.cellular.automata") {
     slide ('Slide Bit Planes',
            seg, y 0_7~3,
            img "icon.cell.slide",
-           <> pipe.cell˚slide.version()
+           <> pipe.cell˚slide.version)
     
     zha   ('Cellular Automata Belousov–Zhabotinsky spirals',
            seg, y 0_6~2,

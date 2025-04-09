@@ -48,7 +48,12 @@ canvas (columns 2,
            svg "icon.direction",
            <> pipe.draw.shift,
            ^- sky.main.anim)
-    
+
+    opacity (xy, x 0…1~1, y 0…1~1,
+             sym "cube.transparent",
+             '-> pipe.render.map.cube.mixcube(x: x)',
+             -> plato.material(z: y))
+
     fill  ('erase screen with fill color',
            val, x 0…1~0 : 0,
            sym "drop",
