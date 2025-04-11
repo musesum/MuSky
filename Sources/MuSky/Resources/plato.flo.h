@@ -7,8 +7,8 @@ plato ('platonic solids',
           sym "eye",
           <> pipe.render.plato(on : x))
 
-    material ('gradient xy and transparencey z',
-              xyz, x 0…1~0, y 0…1~0, z 0…1~1,
+    material ('gradient xy and transparency z',
+              xy, x 0…1~0, y 0…1~0, z 0…1~0.75,
               svg "icon.opacity",
               ^- sky.main.anim)
 
@@ -28,6 +28,10 @@ plato ('platonic solids',
           val, y 0…1~0,
           sym "square.arrowtriangle.4.outward",
           ^- sky.main.anim)
+
+    alpha (val, y 0…1~1,
+           sym "cube.transparent",
+           ^- sky.main.anim)
 
     cubemap ('show cubemap or flat screen (ignored on AVP',
              tog, x 0…1 : 1,

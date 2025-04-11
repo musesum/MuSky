@@ -49,10 +49,10 @@ canvas (columns 2,
            <> pipe.draw.shift,
            ^- sky.main.anim)
 
-    opacity (xy, x 0…1~1, y 0…1~1,
-             sym "cube.transparent",
-             '-> pipe.render.map.cube.mixcube(x: x)',
-             -> plato.material(z: y))
+    alpha (xy, x 0…1~1, y 0…1~1,
+           sym "cube.transparent",
+           -> pipe.render.map.cube.mixcube(y: x),
+           -> plato.alpha(y: y))
 
     fill  ('erase screen with fill color',
            val, x 0…1~0 : 0,

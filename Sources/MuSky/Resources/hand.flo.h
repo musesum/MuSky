@@ -18,14 +18,35 @@ hand(svg "hands.both") {
         forearm
     }
     
-    hand˚.(xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
-           time, phase, joint, on 0, state,'decorate joints with expressions')
+    hand˚.('decorate joints with expressions',
+           xyz, x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+           time, phase, joint, on 0, state,)
     
-    hand˚tip(x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
-             time, phase, joint, on 1, state,'set finger tips on')
+    hand˚tip('set finger tips on',
+             x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+             time, phase, joint, on 1, state)
 
-    menu   (<- index.tip, 'dismiss / bring back menu')
-    draw   (<- hand˚middle.tip, 'draw on canvas. see JointCanvasState:: parseCanvas')
-    zoom   (<- hand˚ring.tip, -> plato.zoom(y: z))
-    matter (<- hand˚little.tip, -> plato.material)
+    menu   ('bring back dismissed menu - not implemented',
+            x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+            time, phase, joint, on, state,
+            <- hand˚index.tip)
+
+    draw   ('draw on canvas. see JointCanvasState:: parseCanvas',
+            x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+            <- hand˚middle.tip)
+
+    zoom   ('script only dispatch to zoom',
+            x -0.3…0.3, y 0.8…1.2,
+            <- hand˚ring.tip,
+            -> plato.zoom(y: z))
+
+    matter ('script only dispatch to change material',
+            x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+            <- hand.right.little.tip,
+            -> plato.material)
+
+    alpha ('script only dispatch to change material',
+            x -0.3…0.3, y 0.8…1.2, z -0.5…0.01,
+            <- hand.left.little.tip,
+            -> canvas.alpha)
 }

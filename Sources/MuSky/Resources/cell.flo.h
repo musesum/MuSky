@@ -7,32 +7,32 @@ cell (columns 2, svg "icon.cellular.automata") {
     
     zha   ('Cellular Automata Belousov–Zhabotinsky spirals',
            seg, y 0_6~2,
-           img "icon.cell.zha"  ,
+           img "icon.cell.zha",
            <> pipe.cell˚zha.version)
     
     ave   ('Cellular Automata Averaging nearby pixels',
            val, y 0…1~0.5,
-           img "icon.cell.ave"  ,
+           img "icon.cell.ave",
            <> pipe.cell˚ave.version)
     
     fade  ('Fade out to zero -- interesting in higher bit planes',
            val, y 0.2…2~1,
-           img "icon.cell.fade" ,
+           img "icon.cell.fade",
            <> pipe.cell˚fade.version)
     
     melt  ('Cellular Automata Reaction Diffusion rule - flashy at first',
            val, y 0…1~0.5,
-           img "icon.cell.melt" ,
+           img "icon.cell.melt",
            <> pipe.cell˚melt.version)
     
     tunl  ('Cellular Automata Tube Tunnel rule',
            seg, y 0_5~1,
-           img "icon.cell.tunl" ,
+           img "icon.cell.tunl",
            <> pipe.cell˚tunl.version)
     
     fred  ('Cellular Automata Fredkin rule',
            seg, y 0_4~4,
-           img "icon.cell.fred" ,
+           img "icon.cell.fred",
            <> pipe.cell˚fred.version)
 }
 

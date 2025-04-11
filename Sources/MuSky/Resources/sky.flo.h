@@ -2,6 +2,7 @@ sky ('visual music synth') {
     main ('main controls') {
         run (x 0…1~1,'currently running')
         anim(x 0…1~0.5,'animation transition speed')
+        immerse(on 0…1~0)
     }
     network {
         bonjour('bonjour status')
@@ -20,7 +21,6 @@ sky ('visual music synth') {
         tilt    (x 0…1~1,  'for iPad pen, allow tilt to shift screen')
         force   (x 0…0.5, -> draw.brush.size, 'iPad pen, pressure with change brush size')
     }
-
     draw ('draw on metal layer') {
         screen.fill(x 0…1~0, 'fill cellular automata universe')
         brush ('type of brush and range') {
@@ -32,7 +32,7 @@ sky ('visual music synth') {
             prev (x 0…1, y 0…1,'staring point of segment')
             next (x 0…1, y 0…1,'endint point of segment')
         }
-        dot(on 1, log 0, 'use MIDI MPI input to drawing dots on canvas') {
+        dot(on 0, log 0, 'use MIDI MPI input to drawing dots on canvas') {
             note {
                 on(chan, num, velo, <- midi.input.note.on)
                 off(chan, num, velo, <- midi.input.note.off)
