@@ -5,7 +5,7 @@ midi('musical instrument device interface') {
             off (chan 1_32, num 0_127, velo 0_127, port 1_16, time)
         }
         afterTouch (chan 1_32, num 0_127, val 0_127, port 1_16, time)
-        pitchWheel (chan 1_32, val 0_16384~8192, port 1_16, time)
+        pitchWheel (chan 1_32, val 0_16384=8192, port 1_16, time)
         program    (chan 1_32, num 0_255, port 1_16, time)
         nrpn       (chan, num 0_16383, val 0…1, time, -> skypad˚.)
         controller (chan 1_32, cc 0_127, val 0_127,port 1_16, time, -> cc.roli˚.)

@@ -17,14 +17,13 @@ camera(sym "camera")  {
              <> pipe.render.map.cube.mixcube)
     
     mix     ('face between real and false color',
-             xy, x 1, y 0…1~0,
+             xy, x 1, y 0…1=0,
              sym "camera.filters",
              <> (pipe.camix.mixcam,
                  pipe.cell.rule˚loops(y)))
     
     color   ('shift false color around'
-             xy,  x 0…1~0, y 0…1~0,
+             xy,  x 0…1=0, y 0…1=0,
              sym "paintpalette"
              <> canvas.color)
 }
-

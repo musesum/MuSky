@@ -7,8 +7,8 @@ plato ('platonic solids',
           sym "eye",
           <> pipe.render.plato(on : x))
     
-    material ('gradient xy',
-              xyz, x 0…1~0, y 0…1~0, z 0…1~0.75,
+    material ('gradient xy and transparency z',
+              xyz, x 0…1=0, y 0…1=0, z 0…1=1,
               svg "icon.opacity",
               ^- sky.main.anim)
     
@@ -25,15 +25,15 @@ plato ('platonic solids',
             svg "icon.convex")
 
     zoom ('zoom into and around platonic object',
-          val, y 0…1~0,
+          val, y 0…1=0,
           sym "square.arrowtriangle.4.outward",
           ^- sky.main.anim)
 
-    alpha (val, y 0…1~1,
+    alpha (val, y 0…1=1,
            sym "cube.transparent",
            ^- sky.main.anim)
 
-    _cubemap ('show cubemap or flat screen (ignored on AVP',
+    _cubemap ('show cubemap or flat screen (ignored on AVP)',
              tog, x 0…1 : 1,
              sym "cube",
              -> pipe.render.map.cube.mixcube(x: x))

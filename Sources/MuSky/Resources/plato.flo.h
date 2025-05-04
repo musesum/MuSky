@@ -8,7 +8,7 @@ plato ('platonic solids',
           <> pipe.render.plato(on : x))
 
     material ('gradient xy and transparency z',
-              xy, x 0…1~0, y 0…1~0, z 0…1~0.75,
+              xyz, x 0…1=0, y 0…1=0, z 0…1=1,
               svg "icon.opacity",
               ^- sky.main.anim)
 
@@ -25,11 +25,11 @@ plato ('platonic solids',
             svg "icon.convex")
 
     zoom ('zoom into and around platonic object',
-          val, y 0…1~0,
+          val, y 0…1=0,
           sym "square.arrowtriangle.4.outward",
           ^- sky.main.anim)
 
-    alpha (val, y 0…1~1,
+    alpha (val, y 0…1=1,
            sym "cube.transparent",
            ^- sky.main.anim)
 
