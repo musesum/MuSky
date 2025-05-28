@@ -10,6 +10,7 @@ plato ('platonic solids',
     material ('gradient xy and transparency z',
               xyz, x 0…1=0, y 0…1=0, z 0…1=1,
               svg "icon.opacity",
+              -> zoom(y:z)
               ^- sky.main.anim)
 
     harmonic ('number of face triangle subdivisions',

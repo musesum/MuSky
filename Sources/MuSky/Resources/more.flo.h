@@ -7,11 +7,11 @@ more (svg "icon.more") {
     archive (arch,
              sym "building.columns")
     
-    _fps (val, 0_60~60,
+    _fps (val, 0_60=60,
           img "icon.speed",
           <> sky.main.fps)
     
-    _anim(val, 0…1~0.24,
+    _anim(val, 0…1:0.24,
           sym "bolt.fill",
           <> sky.main.anim)
     

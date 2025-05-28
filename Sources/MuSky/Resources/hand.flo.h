@@ -19,11 +19,11 @@ hand(svg "hands.both") {
     }
     
     hand˚.('decorate joints with expressions',
-           x -0.3…0.3, y 0.8…1.2, z -0.5…-0.01,
+           x -0.30 … 0.30, y 0.80 … 1.20, z -0.50 … -0.01,
            time, phase, joint, on 0, state)
     
     hand˚tip('set finger tips on',
-             x -0.3…0.3, y 0.8…1.2, z -0.5…-0.01,
+             x -0.30 … 0.30, y 0.80 … 1.20, z -0.50 … -0.01,
              time, phase, joint, on 1, state)
     
     menu ('bring back dismissed menu - not implemented',
@@ -37,12 +37,10 @@ hand(svg "hands.both") {
           -> plato.zoom(y: z))
     
     material ('script only dispatch to change material',
-              x -0.3…0.3, y 0.8…1.2, z -0.5…-0.01: -0.01,
               <- hand.right.little.tip,
               -> plato.material)
     
     alpha ('script only dispatch to change material',
-           x -0.3…0.3, y 0.8…1.2, z -0.5…-0.01,
            <- hand.left.little.tip,
            -> canvas.alpha)
 }
