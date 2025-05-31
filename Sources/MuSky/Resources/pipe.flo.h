@@ -21,7 +21,7 @@ pipe (on 1) {
             melt (on 0) { version (buf, x 0…1 : 0.5) loops (buf, y 0…32=0) }
             tunl (on 0) { version (buf, x 0…5 : 1)   loops (buf, y 0…32=0) }
             fred (on 0) { version (buf, x 0…4 : 4)   loops (buf, y 0…32=0) }
-            *(-> *(on 0)) // solo only one rule //.... no tooltip here
+            *(-> *(on 0)) // solo only one rule // no tooltip here
             ˚version(-> ..(on 1)) // changing `version` auto switches rule
         }
     }
