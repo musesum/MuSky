@@ -50,7 +50,8 @@ pipe (on 1) {
             flat(on 1)
             cube(on 1) {
                 cudex (tex)
-                mixcube (buf, x 0…1 : 1, y 0…1 : 1)
+                mixcube (buf, x 0…1 : 1, y 0…1 : 1,
+                         ^- sky.main.anim)
             }
         }
         plato (on 1) {

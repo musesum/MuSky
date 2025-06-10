@@ -1,14 +1,14 @@
 midi('musical instrument device interface') {
     input ('MIDI input') {
         note('note on/off from 0 thru 127') {
-            on  (chan 1_32, num 0_127, velo 0_127, port 1_16, time)
-            off (chan 1_32, num 0_127, velo 0_127, port 1_16, time)
+            on  (chan 1_32, num 0_127, velo 0_127, port 1_16, time 0)
+            off (chan 1_32, num 0_127, velo 0_127, port 1_16, time 0)
         }
-        afterTouch (chan 1_32, num 0_127, val 0_127, port 1_16, time)
-        pitchWheel (chan 1_32, val 0_16384=8192, port 1_16, time)
-        program    (chan 1_32, num 0_255, port 1_16, time)
-        nrpn       (chan, num 0_16383, val 0…1, time, -> skypad˚.)
-        controller (chan 1_32, cc 0_127, val 0_127,port 1_16, time, -> cc.roli˚.)
+        afterTouch (chan 1_32, num 0_127, val 0_127, port 1_16, time 0)
+        pitchWheel (chan 1_32, val 0_16384=8192, port 1_16, time 0)
+        program    (chan 1_32, num 0_255, port 1_16, time 0)
+        nrpn       (chan, num 0_16383, val 0…1, time 0, -> skypad˚.)
+        controller (chan 1_32, cc 0_127, val 0_127,port 1_16, time 0, -> cc.roli˚.)
     }
     output : input { controller(<- cc˚.) }
 
