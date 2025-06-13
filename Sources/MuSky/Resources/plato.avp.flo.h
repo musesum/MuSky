@@ -36,10 +36,9 @@ plato ('platonic solids',
 
     _cubemap ('show cubemap or flat screen (ignored on AVP)',
              tog, x 0…1 : 1,
-             sym "cube",
-             -> pipe.render.map.cube.mixcube(x: x))
+             sym "cube") //,-> pipe.render.map.cube.mixcube(x: x))
 
-    _run ('run the platonic transformation',
+    run ('run the platonic transformation',
           tog, x 0_1 : 1,
           svg "icon.counter")
 

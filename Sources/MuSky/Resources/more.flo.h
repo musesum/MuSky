@@ -7,6 +7,7 @@ more (svg "icon.more") {
     archive (arch,
              sym "building.columns")
     
+
     _fps (val, 0_60=60,
           img "icon.speed",
           <> sky.main.fps)
@@ -27,3 +28,6 @@ more (svg "icon.more") {
            sym "pianokeys.inverse",
            <> sky.network.midi)
 }
+search('voice search',
+       sym "magnifyingglass",
+       <> sky.menu.search)
