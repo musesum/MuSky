@@ -1,5 +1,5 @@
 hand(svg "hands.both") {
-    left  (svg "hand.left") {
+    left (svg "hand.left") {
         thumb  {      knuc base inter tip }
         index  { meta knuc base inter tip }
         middle { meta knuc base inter tip }
@@ -26,9 +26,11 @@ hand(svg "hands.both") {
              x -0.30 … 0.30, y 0.80 … 1.20, z -0.50 … -0.01,
              time, phase, joint, on 1, state)
     
-    menu ('bring back dismissed menu - not implemented',
-          <- hand˚index.tip)
-    
+    menu {
+        left  (<- hand.left.index.tip)
+        right (<- hand.right.index.tip)
+    }
+
     draw ('draw on canvas. see JointCanvasState:: parseCanvas',
           <- hand˚middle.tip)
     

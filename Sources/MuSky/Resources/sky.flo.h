@@ -2,7 +2,6 @@ sky ('visual music synth') {
     main ('main controls') {
         run (x 0…1=1,'currently running')
         anim(x 0…1=0.5,'animation transition speed')
-        immerse(on 0…1=0)
     }
     network {
         bonjour('bonjour status')
@@ -53,6 +52,4 @@ sky ('visual music synth') {
             clear(<- draw.screen.fill)
         }
     }
-    pov ('point of view',
-         x -0.3…0.3, y 0.8…1.2, z -0.5…0.01, time)
 }
