@@ -2,12 +2,15 @@ sky ('visual music synth') {
     main ('main controls') {
         run (x 0…1=1,'currently running')
         anim(x 0…1=0.5,'animation transition speed')
+        glass(x 0…1=1, 'glass style on os26' )
+        chat
     }
     network {
         bonjour('bonjour status')
         follow (x 0…1=1,'follow remote events -- not implemented')
         midi   (x 0…1=1,'follow midi events -- not implemented')
     }
+
     color ('false color mapping palette') {
         pal0 ("roygbik", 'red orange yellow green blue indigo black')
         pal1 ("wKZ", 'white & blacK with capital K meaning both sides, Z means with Zeno fractal')

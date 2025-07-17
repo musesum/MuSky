@@ -7,10 +7,13 @@ more (svg "icon.more") {
     archive (arch,
              sym "building.columns")
 
-    search('voice search',
-           sym "magnifyingglass",
-           <> sky.menu.search)
-    
+    settings('settings',
+             sym "gear") {
+        glass('glass',
+              tog, x 1,
+              sym "eyeglasses")
+    }
+
     _fps (val, 0_60=60,
           img "icon.speed",
           <> sky.main.fps)
