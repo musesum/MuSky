@@ -21,12 +21,12 @@ hand(svg "hands.both") {
     
     hand˚.('decorate joints with expressions',
            x -0.30 … 0.30, y 0.80 … 1.20, z -0.50 … -0.01,
-           time, phase, joint, on 0, state)
-    
+           time, phase, taps, joint, on 0, state)
+
     hand˚tip('set finger tips on',
              x -0.30 … 0.30, y 0.80 … 1.20, z -0.50 … -0.01,
-             time, phase, joint, on 1, state)
-    
+             time, phase, taps, joint, on 1, state)
+
     menu {
         left  (<- hand.left.index.tip)
         right (<- hand.right.index.tip)
