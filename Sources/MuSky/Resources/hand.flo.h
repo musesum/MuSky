@@ -27,7 +27,7 @@ hand(svg "hands.both") {
              x -0.30 … 0.30, y 0.80 … 1.20, z -0.50 … -0.01,
              time, phase, taps, joint, on 1, state)
 
-    menu {
+    pinch {
         left  (<- hand.left.index.tip)
         right (<- hand.right.index.tip)
     }
