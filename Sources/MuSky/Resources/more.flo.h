@@ -7,12 +7,16 @@ more (svg "icon.more") {
     archive (arch,
              sym "building.columns")
 
-    settings('settings',
-             sym "gear") {
-        glass('glass',
-              tog, x 1,
-              sym "eyeglasses")
-    }
+    glass('glass',
+          tog, x 1,
+          sym "eyeglasses")
+
+    panic('panic',
+          tog, x 1,
+          svg "icon.panic")
+
+    _settings('settings',
+              sym "gear")
 
     _fps (val, 0_60=60,
           img "icon.speed",
