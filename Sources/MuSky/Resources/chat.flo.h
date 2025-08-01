@@ -1,3 +1,2 @@
-chat('chat',
-       sym "sparkle",
-       <> sky.main.search)
+archive (arch,
+         sym "building.columns")
