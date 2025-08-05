@@ -26,7 +26,7 @@ pipe (on 1) {
         }
     }
     color (on 1) {
-        in (tex, <- (camera.out, cell.out))
+        in (tex, <- (cell.out))
         out (tex)
         pal (tex, w 256, h 1)
         plane (buf, y 0…1)
