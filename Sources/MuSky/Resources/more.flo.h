@@ -16,11 +16,11 @@ more (svg "icon.more") {
          img "icon.speed",
          <> sky.main.fps)
 
-    chat('chat',
-         sym "sparkle",
-         <> sky.main.search)
-
     bonjour (peer "bonjour",
              sym "bonjour",
              <> sky.network.bonjour)
 }
+
+chat('chat',
+     sym "sparkle",
+     <> sky.main.search)
