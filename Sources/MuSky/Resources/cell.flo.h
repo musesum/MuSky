@@ -16,7 +16,7 @@ cell (columns 2, svg "icon.cellular.automata") {
            <> pipe.cell˚ave.version)
     
     fade  ('Fade out to zero -- interesting in higher bit planes',
-           val, x 0.2…2=1,
+           val, x 0…2=1,
            img "icon.cell.fade",
            <> pipe.cell˚fade.version)
     

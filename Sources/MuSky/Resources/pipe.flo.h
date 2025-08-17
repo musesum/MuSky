@@ -17,7 +17,7 @@ pipe (on 1) {
             slide(on 1) { version (buf, x 0…7 : 3)   loops (buf, z 0) }
             zha  (on 0) { version (buf, x 0…6 : 2)   loops (buf, z 10) }
             ave  (on 0) { version (buf, x 0…1 : 0.5) loops (buf, y 0…99=0) }
-            fade (on 0) { version (buf, x 1…3 : 1.2) loops (buf, y 0…32=0) }
+            fade (on 0) { version (buf, x 0…2 : 0)   loops (buf, y 0…32=0) }
             melt (on 0) { version (buf, x 0…1 : 0.5) loops (buf, y 0…32=0) }
             tunl (on 0) { version (buf, x 0…5 : 1)   loops (buf, y 0…32=0) }
             fred (on 0) { version (buf, x 0…4 : 4)   loops (buf, y 0…32=0) }

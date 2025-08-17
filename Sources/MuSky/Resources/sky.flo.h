@@ -26,7 +26,7 @@ sky ('visual music synth') {
     draw ('draw on metal layer') {
         screen.fill(x 0…1=0, 'fill cellular automata universe')
         brush ('type of brush and range') {
-            size  (x 1…64=10:10, 'range of radius')
+            size  (x 1…128=10:10, 'range of radius')
             press (x 0…1=1, 'pressure changes size')
             index (x 1…255=127, 'index in 256 color palette')
         }

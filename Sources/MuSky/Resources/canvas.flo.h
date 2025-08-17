@@ -28,7 +28,7 @@ canvas (columns 2,
             ^- sky.main.anim)
 
     size  ('fixed brush size',
-           val, x 1_64=12 : 12,
+           val, x 1_128=12 : 12,
            svg "icon.size.dot",
            <> sky.draw.brush.size)
 
