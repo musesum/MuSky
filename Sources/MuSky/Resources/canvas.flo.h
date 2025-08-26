@@ -51,8 +51,7 @@ canvas (columns 2,
 
     alpha (xy, x 0…1=1, y 0…1=1,
            sym "cube.transparent",
-           '-> pipe.render.map.cube.mixcube(y: x)',
-           -> plato.alpha(y: y))
+           -> pipe.color.height(x: x))
 
     fill  ('erase screen with fill color',
            val, x 0…1=0 : 0,

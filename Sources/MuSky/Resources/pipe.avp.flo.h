@@ -27,9 +27,11 @@ pipe (on 1) {
     }
     color (on 1) {
         in (tex, <- (cell.out))
-        out (tex)
         pal (tex, w 256, h 1)
+        out (tex)
+        displace(tex)
         plane (buf, y 0…1)
+        height(buf, x 0…1=0)
     }
     camix (on 0, <- camera) {
         in  (tex, <- color.out)
@@ -46,8 +48,9 @@ pipe (on 1) {
     }
     render (on 1) {
         in (tex, <- tile.out)
+        displace(tex, <- color.displace)
         map (on 1)  {
-            flat(on 1)
+            flat(on 1) 
             cube(on 1) {
                 cudex (tex)
                 mixcube (buf, x:1, y:1)
