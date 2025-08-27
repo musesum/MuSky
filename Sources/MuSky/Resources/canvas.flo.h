@@ -49,9 +49,9 @@ canvas (columns 2,
            <> pipe.draw.shift,
            ^- sky.main.anim)
 
-    alpha (xy, x 0…1=1, y 0…1=1,
+    alpha (xy, x 0…1=0, y 0…1=0,
            sym "cube.transparent",
-           -> pipe.color.height(x: x))
+           -> plato.alpha(y: y))
 
     fill  ('erase screen with fill color',
            val, x 0…1=0 : 0,
