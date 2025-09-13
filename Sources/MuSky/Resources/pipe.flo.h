@@ -51,11 +51,9 @@ pipe (on 1) {
         displace(tex, <- color.displace)
         map (on 1)  {
             flat(on 1)
-
             cube(on 1) {
                 cudex(tex)
                 mixcube (buf, x 0…1 : 1, y 0…1 : 1, ^- sky.main.anim)
-                box(on 1)
             }
         }
         plato (on 1) {
