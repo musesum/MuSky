@@ -1,9 +1,5 @@
 more (svg "icon.more") {
 
-    glass('glass',
-          tog, x 1,
-          sym "eyeglasses")
-
     panic('panic',
           tog, x 1,
           svg "icon.panic")
@@ -19,8 +15,10 @@ more (svg "icon.more") {
     bonjour (peer "bonjour",
              sym "bonjour",
              <> sky.network.bonjour)
-}
 
-chat('chat',
-     sym "sparkle",
-     <> sky.main.search)
+    chat('chat',
+         sym "sparkle",
+         <> sky.main.search)
+}
+music(sym "music.note")
+mic(sym "music.microphone")
