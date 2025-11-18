@@ -1,5 +1,5 @@
 tape (columns 3, 'record playback loop', sym "recordingtape") {
-    rec ('record', sym "record.circle.fill", on 0)
+    rec  ('record', sym "record.circle.fill", on 0)
     play ('playback', sym "play.fill", on 0)
     stop ('stop', sym "stop.fill", on 0)
     forw ('forward', sym "forward.frame.fill", on 0)
