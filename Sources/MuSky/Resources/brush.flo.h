@@ -19,7 +19,7 @@ brush ('brush',
     tilt  ('set on to let iPad tilt shift screen',
            tog, x 0,
            sym "angle",
-           <> input.tilt)
+           <> sky.input.tilt)
 
     fill  ('erase screen with fill color',
            val, x 0…1=0 : 0,

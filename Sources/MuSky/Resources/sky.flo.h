@@ -20,7 +20,7 @@ sky ('visual music synth') {
         azimuth (x -0.2…0.2, y -0.2…0.2, -> pipe.draw.shift)
         accel   (x -0.3…0.3, y -0.3…0.3, z -0.3…0.3,'accelerometer')
         radius  (x 1…92=9, 'for iPhone, finger silhouette changes brush size')
-        tilt    (x 0…1=1,  'for iPad pen, allow tilt to shift screen')
+        tilt    (x 0…1=0,  'for iPad pen, allow tilt to shift screen')
         force   (x 0…0.5, -> draw.brush.size, 'iPad pen, pressure with change brush size')
     }
 }
