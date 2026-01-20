@@ -7,7 +7,7 @@ tape ('record playback loop', sym "recordingtape") {
         _on  (sym "play.fill")
         _off (sym "play")
     }
-    loop (tog, x 0, -> record(x 0)) {
+    _loop (tog, x 1) {
         _on  (sym "arrow.trianglehead.clockwise")
         _off (sym "arrow.forward.to.line.compact")
     }
