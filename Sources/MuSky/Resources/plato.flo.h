@@ -35,6 +35,7 @@ plato ('platonic solids',
            ^- sky.main.anim)
 
     cubemap ('show cubemap or flat screen (ignored on VisionPro)',
+             private,
              tog, x 0…1 : 1,
              sym "cube",
              -> pipe.render.map.cube.mixcube(x: x))
