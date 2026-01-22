@@ -1,4 +1,4 @@
-tape ('record playback loop', sym "recordingtape") {
+tape (share 0, 'record playback loop', sym "recordingtape") {
     record (tog, x 0, -> play(x 0)) {
         _on  (sym "record.circle.fill")
         _off (sym "square.fill")
@@ -7,7 +7,7 @@ tape ('record playback loop', sym "recordingtape") {
         _on  (sym "play.fill")
         _off (sym "play")
     }
-    _loop (tog, x 1) {
+    loop (menu 0, tog, x 1) {
         _on  (sym "arrow.trianglehead.clockwise")
         _off (sym "arrow.forward.to.line.compact")
     }
@@ -15,7 +15,7 @@ tape ('record playback loop', sym "recordingtape") {
         _on  (sym "graduationcap.fill")
         _off (sym "graduationcap")
     }
-    beat (tap, x 0) {
+    beat (reflect 1, tap, x 0) {
         _on  (svg "icon.heartbeat.fill")
         _off (svg "icon.heartbeat")
     }
