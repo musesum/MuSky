@@ -1,9 +1,5 @@
 more (svg "icon.more") {
 
-    panic('panic',
-          tog, x 1,
-          svg "icon.panic")
-
     anim(val, 0…1:0.24,
          sym "bolt.fill",
          <> sky.main.anim)

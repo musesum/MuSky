@@ -19,4 +19,8 @@ tape (share 0, 'record playback loop', sym "recordingtape") {
         _on  (svg "icon.heartbeat.fill")
         _off (svg "icon.heartbeat")
     }
+    panic('panic',
+          tog, x 1,
+          svg "icon.panic")
+
 }
