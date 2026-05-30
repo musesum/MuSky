@@ -16,11 +16,11 @@ camera(sym "camera")  {
              sym "cube",
              <> pipe.render.map.cube.mixcube)
     
-    mix     ('face between real and false color',
-             xy, x 1, y 0…1=0,
+    mix     ('x = mix, y = loops',
+             xy, x 1, y 0…10=0,
              sym "camera.filters",
              <> (pipe.camix.mixcam,
-                 pipe.cell.rule˚loops(y)))
+                 pipe.cell.rule˚loops))
     
     color   ('shift false color around'
              xy,  x 0…1=0, y 0…1=0,
