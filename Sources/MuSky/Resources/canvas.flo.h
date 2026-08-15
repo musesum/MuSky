@@ -8,17 +8,12 @@ canvas (svg "icon.canvas") {
            ^- sky.main.anim)
 
     repeat ('repeat canvas, 0 is 1:1',
-            xy, x -1…1=0, y -1…1=0,
+            xyzw, x -1…1=0, y -1…1=0, z 0…1=0, w 0…1=0,
             svg "icon.repeat.arrows",
             <> pipe˚.repeat,
             -> (midi.cc.skypad.repeatX(val: x),
-                midi.cc.skypad.repeatY(val: y)),
-            ^- sky.main.anim)
-
-    mirror ('mirror repetitions',
-            xy, x 0…1=0, y 0…1=0,
-            svg "icon.mirror",
-            <> pipe˚.mirror,
+                midi.cc.skypad.repeatY(val: y),
+                pipe˚.mirror(x: z, y: w)),
             ^- sky.main.anim)
 
     shift ('amount of screen shift, double tap to stop',

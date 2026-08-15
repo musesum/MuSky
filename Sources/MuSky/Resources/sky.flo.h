@@ -3,12 +3,16 @@ sky ('visual music synth') {
         run (x 0…1=1,'currently running')
         anim(x 0…1=0.5,'animation transition speed')
         glass(x 0…1=1, 'glass style on os26' )
+        monitor('external display chooser')
         chat
     }
     network {
         bonjour('bonjour status')
         follow (x 0…1=1,'follow remote events -- not implemented')
         midi   (x 0…1=1,'follow midi events -- not implemented')
+    }
+    mic ('live microphone input') {
+        input (y 0…1=0, w -1…1=0) // y volume (v, 0 = mic off), w band-pass sweep (f) -- MuAudio.WaveAudioTap
     }
 
     color ('false color mapping palette') {
